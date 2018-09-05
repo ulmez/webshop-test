@@ -23,7 +23,7 @@ const app = express();
 
 
 //app.use("/public", express.static(__dirname + "/public-static-html/"));
-app.use("/", express.static(__dirname + "/public-cra/build/"));
+app.use("/", express.static(__dirname + "/public-cra/build"));
 
 
 
@@ -35,6 +35,14 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 app.use('/users', index);
 //app.use('/todos', todos);
+
+if(process.env.NODE_ENV === 'production'){
+  //set static folder
+  app.use(express.static('/public-cra/build'));
+}
+app.get('*',(req, res) => {
+  res.sendFile(path.resolve(__dirname, 'public-cra', 'build', 'index.html'));
+});
 
 app.listen(port, function() {
   console.log("listening on port: ", port);
