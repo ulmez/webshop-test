@@ -3,7 +3,8 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "node server.js"
+    "start": "node server.js",
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix public-cra && npm run build --prefix public-cra"
   },
   "dependencies": {
     "body-parser": "^1.18.2",
