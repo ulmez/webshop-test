@@ -23,7 +23,7 @@ const app = express();
 
 
 //app.use("/public", express.static(__dirname + "/public-static-html/"));
-app.use("/", express.static(__dirname + "/public-cra/build"));
+app.use("/", express.static(__dirname + "/public-cra/build/"));
 
 
 
