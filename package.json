@@ -1,10 +1,11 @@
 {
-  "name": "fullstackreact",
+  "name": "webshop-rest-api",
   "version": "0.0.0",
   "private": true,
   "scripts": {
     "start": "node server.js",
-    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix public-cra && npm run build --prefix public-cra"
+    "dev": "nodemon server.js",
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix react-client && npm run build --prefix react-client"
   },
   "dependencies": {
     "body-parser": "^1.18.2",
@@ -13,9 +14,13 @@
     "debug": "^3.1.0",
     "ejs": "^2.5.7",
     "express": "^4.16.2",
-    "knex": "^0.13.0",
+    "fawn": "^2.1.5",
+    "http-errors": "^1.7.0",
     "mongoose": "^5.2.13",
     "morgan": "^1.9.0",
     "pg": "^7.3.0"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.4"
   }
 }
